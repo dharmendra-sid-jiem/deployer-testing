@@ -11,24 +11,24 @@ jobs:
     #needs: [build-js, test-php]
     if: github.ref == 'refs/heads/master'
     steps:
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: master
+#    - name: Push changes
+#      uses: ad-m/github-push-action@master
+#      with:
+#        branch: master
 #        github_token: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/checkout@v1
-    - name: Download build assets
-      uses: actions/download-artifact@v1
-      with:
-        name: assets
-        path: public
-    - name: Setup PHP
-      uses: dharmendra-sid-jiem/deployer-testing@master
-      with:
-        php-version: 7.3
-        extension-csv: mbstring, bcmath
-    - name: Composer install
-      run: composer install
+#    - uses: actions/checkout@v1
+#    - name: Download build assets
+#      uses: actions/download-artifact@v1
+#      with:
+#        name: assets
+#        path: public
+#    - name: Setup PHP
+#      uses: dharmendra-sid-jiem/deployer-testing@master
+#      with:
+#        php-version: 7.3
+#        extension-csv: mbstring, bcmath
+#    - name: Composer install
+#      run: composer install
     - name: Setup Deployer
       uses: atymic/deployer-php-action@master
       with:
