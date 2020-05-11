@@ -11,8 +11,8 @@ jobs:
     #needs: [build-js, test-php]
     if: github.ref == 'refs/heads/master'
     steps:
-    - uses: ad-m/github-push-action@master
     - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
         branch: master
 #        github_token: ${{ secrets.GITHUB_TOKEN }}
