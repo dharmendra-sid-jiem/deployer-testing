@@ -1,4 +1,4 @@
-name: CI-CD # Give your workflow a name
+name: CI-CD # Give your workflow a name test
 
 on:
   push:
