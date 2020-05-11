@@ -1,9 +1,10 @@
 name: CI-CD # Give your workflow a name
 
-on: push # Run the workflow for each push event (i.e commit)
+on:
+  push:
+    branches: master
 
 jobs:
-
   deploy:
     name: Deploy to Production
     runs-on: ubuntu-latest
