@@ -11,6 +11,11 @@ jobs:
     #needs: [build-js, test-php]
     if: github.ref == 'refs/heads/master'
     steps:
+    - uses: ad-m/github-push-action@master
+    - name: Push changes
+      with:
+        branch: master
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/checkout@v1
     - name: Download build assets
       uses: actions/download-artifact@v1
