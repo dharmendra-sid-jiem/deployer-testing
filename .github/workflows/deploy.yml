@@ -1,8 +1,8 @@
-name: CI-CD # Give your workflow a name test
+name: CI-CD # Give your workflow a name
 
 on:
   push:
-    branches: master
+    branches: develop
 
 jobs:
   deploy:
@@ -14,8 +14,8 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        branch: master
-#        github_token: ${{ secrets.GITHUB_TOKEN }}	
+        branch: develop
+        github_token: ${{ secrets.GITHUB_TOKEN }}	
 #    - name: Push changes
 #      uses: ad-m/github-push-action@master
 #      with:
