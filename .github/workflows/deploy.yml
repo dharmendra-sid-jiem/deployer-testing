@@ -27,14 +27,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Setup PHP
-        uses: shivammathur/setup-php@master
+        uses: dharmendra-sid-jiem/deployer-testing@master
         with:
           php-version: 7.3 # Use your PHP version
           extension-csv: mbstring, bcmath # Setup any required extensions for tests
       - name: Composer install
         run: composer install
       - name: Run Tests
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit*/
   deploy:
     name: Deploy to Production
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
           name: assets
           path: public
       - name: Setup PHP
-        uses: shivammathur/setup-php@master
+        uses: dharmendra-sid-jiem/deployer-testing@master
         with:
           php-version: 7.3
           extension-csv: mbstring, bcmath
