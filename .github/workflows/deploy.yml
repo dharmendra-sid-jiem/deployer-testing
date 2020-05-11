@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-js:
-    name: Build Js/Css
+    name: Build Js Css
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
