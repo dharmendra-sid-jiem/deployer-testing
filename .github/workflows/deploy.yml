@@ -22,8 +22,8 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v1
-    - name: Composer install
-      run: composer install
+ #   - name: Composer install
+ #     run: composer install
 #    - name: Setup Deployer
 #      uses: atymic/deployer-php-action@master
 #      with:
