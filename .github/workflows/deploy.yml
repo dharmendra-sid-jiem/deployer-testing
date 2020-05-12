@@ -47,13 +47,13 @@ jobs:
 #        with:
 #          name: assets
 #          path: public
-#      - name: Setup PHP
-#        uses: shivammathur/setup-php@master
-#        with:
-#          php-version: 7.3
-#          extension-csv: mbstring, bcmath
-#      - name: Composer install
-#        run: composer install
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 7.3
+          extension-csv: mbstring, bcmath
+      - name: Composer install
+        run: composer install
       - name: Setup Deployer
         uses: atymic/deployer-php-action@master
         with:
