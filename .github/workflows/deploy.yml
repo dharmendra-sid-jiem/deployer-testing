@@ -24,13 +24,13 @@ jobs:
     - uses: actions/checkout@v1
     - name: Composer install
       run: composer install
-    - name: Setup Deployer
-      uses: atymic/deployer-php-action@master
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-    - name: Deploy to Prod
+#    - name: Setup Deployer
+#      uses: atymic/deployer-php-action@master
+#      with:
+#        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+#    - name: Deploy to Prod
 #    env:
 #      DOT_ENV: ${{ secrets.DOT_ENV }}
-      run: dep deploy development
+#      run: dep deploy development
 #--tag=${{ env.GITHUB_REF }} -vvv
