@@ -4,15 +4,17 @@ on: push # Run the workflow for each push event (i.e commit)
 
 jobs:
   deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest   
     if: github.ref == 'refs/heads/master'
-    needs: [laravel-tests]
-    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Deploy
-      env:
-        DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      run: |
-        eval "$(ssh-agent -s)"
-        ssh-add - <<< "${DEPLOY_KEY}"
-        dep deploy development
+ #   - name: Composer install
+ #     run: composer install
+    - name: Setup Deployer
+      uses: atymic/deployer-php-action@master
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+    - name: Deploy to Prod
+      run: dep deploy development
