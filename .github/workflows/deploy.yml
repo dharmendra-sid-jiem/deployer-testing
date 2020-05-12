@@ -1,20 +1,18 @@
 name: CI-CD # Give your workflow a name
 
-on: push # Run the workflow for each push event (i.e commit)
-
+on: push
+  
 jobs:
-  deploy:
-    name: Deploy to Production
-    runs-on: ubuntu-latest   
-    if: github.ref == 'refs/heads/master'
+  build:
+    name: Deploy code to prod
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
- #   - name: Composer install
- #     run: composer install
-    - name: Setup Deployer
-      uses: atymic/deployer-php-action@master
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-    - name: Deploy to Prod
-      run: dep deploy development
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Deploy
+        uses: musps/action-deployer-php@master
+        with:
+          args: deploy development
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+     # run: dep deploy development
