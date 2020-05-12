@@ -15,7 +15,4 @@ jobs:
       run: |
         eval "$(ssh-agent -s)"
         ssh-add - <<< "${DEPLOY_KEY}"
-        mkdir ~/.ssh
-        echo -e "HostName example.com\n\tStrictHostKeyChecking no\n\t"User vagrant >> ~/.ssh/config_ssh
-        composer install
         dep deploy development
