@@ -8,7 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        # Build JS
+      - uses: actions/checkout@v1 # Download the source code
+      - name: Yarn Build
+        run: |
+          yarn install
+          yarn prod
+          cat public/mix-manifest.json # See asset versions in log
+      - name: Upload build files
+        uses: actions/upload-artifact@v1
+        with:
+          name: assets
+          path: public
   test-php:
       name: Test/Lint PHP
       runs-on: ubuntu-latest
