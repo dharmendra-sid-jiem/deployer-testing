@@ -9,26 +9,13 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v1
- #   - name: Composer install
- #     run: composer install
-#    - name: Setup Deployer
-#      uses: atymic/deployer-php-action@master
-#      with:
-#        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        #ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-
-#    - name: Deploy to Development
-#      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.GATEWAY_AUTH}}
-#--tag=${{ env.GITHUB_REF }} -vvv
-#    - name: Run a multi-line script		
- #     run: ls
-     - name: multiple command
-       uses: appleboy/ssh-action@master
-       with:
-         host: ${{ secrets.HOST }}
-         username: ${{ secrets.USERNAME }}
-         key: ${{ secrets.SSH_PRIVATE_KEY }}
-         port: 22
-       script: |
-         whoami
-         ls -al
+    - name: multiple command
+      uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+        script: |
+          whoami
+          ls -al
