@@ -2,7 +2,7 @@
 namespace Deployer;
 
 require 'recipe/zend_framework.php';
-require 'vendor/deployer/recipes/recipe/slack.php';
+#require 'vendor/deployer/recipes/recipe/slack.php';
 
 // Project repository
 //set('dantai_repository', 'git@github.com:jiem-inc/jiem-portal-dist.git');
@@ -22,8 +22,8 @@ set('db_host','ds-deployer-dev');
 
 set('keep_releases', 10);
 //Slack Configuration
-set('slack_webhook', 'https://hooks.slack.com/services/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');
-set('slack_title', 'Deployer Testing');
+#set('slack_webhook', 'https://hooks.slack.com/services/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');
+#set('slack_title', 'Deployer Testing');
 set('user', 'ec2-user');
 set('instances',[
 					[
@@ -171,8 +171,8 @@ task('deploy', [
     'success'
 ]);
 
-before('deploy', 'slack:notify');
-after('deploy', 'slack:notify:success');
+#before('deploy', 'slack:notify');
+#after('deploy', 'slack:notify:success');
 
 ///Rollback operations 
 task('revert', [
