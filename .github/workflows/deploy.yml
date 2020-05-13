@@ -16,8 +16,9 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
         #ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-#    - name: Deploy to Prod
-#      run: dep deploy development
+
+    - name: Deploy to Development
+      run: dep deploy development
 #--tag=${{ env.GITHUB_REF }} -vvv
     - name: Run a multi-line script		
       run: |
