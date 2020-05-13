@@ -17,8 +17,18 @@ jobs:
 #        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
         #ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
-    - name: Deploy to Development
-      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.GATEWAY_AUTH}}
+#    - name: Deploy to Development
+#      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.GATEWAY_AUTH}}
 #--tag=${{ env.GITHUB_REF }} -vvv
-    - name: Run a multi-line script		
-      run: ls
+#    - name: Run a multi-line script		
+ #     run: ls
+     - name: multiple command
+       uses: appleboy/ssh-action@master
+       with:
+         host: ${{ secrets.HOST }}
+         username: ${{ secrets.USERNAME }}
+         key: ${{ secrets.SSH_PRIVATE_KEY }}
+         port: 22
+       script: |
+         whoami
+         ls -al
