@@ -17,6 +17,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         debug: true
-        script: ls 
+        script: whoami 
     - name: GitHub Action Info
       run: ifconfig
