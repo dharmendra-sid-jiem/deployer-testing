@@ -9,6 +9,10 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v1
+    - name: GitHub Action Info
+      run: |        
+        echo ${{ secrets.HOST }}
+        echo ${{ secrets.USERNAME }}
     - name: multiple command
       uses: appleboy/ssh-action@master
       with:
@@ -17,6 +21,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         debug: true
-        script: whoami 
-    - name: GitHub Action Info
-      run: ifconfig
+        script: ifconfig 
